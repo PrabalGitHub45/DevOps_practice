@@ -7,7 +7,7 @@ on:
 
 env:
   AWS_REGION: ap-south-1
-  ECR_REPOSITORY: node-app-repo
+  ECR_REPOSITORY: devops-prabal
   IMAGE_TAG: latest
 
 jobs:
@@ -30,6 +30,6 @@ jobs:
 
       - name: Build, tag, and push Docker image to Amazon ECR
         run: |
-          docker build -t $ECR_REPOSITORY:$v1 .
+          docker build -t $ECR_REPOSITORY:v1 .
           docker tag $ECR_REPOSITORY:$IMAGE_TAG ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ env.AWS_REGION }}.amazonaws.com/$ECR_REPOSITORY:v1
           docker push ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ env.AWS_REGION }}.amazonaws.com/$ECR_REPOSITORY:v1
