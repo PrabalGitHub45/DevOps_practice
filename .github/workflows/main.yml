@@ -30,6 +30,6 @@ jobs:
 
       - name: Build, tag, and push Docker image to Amazon ECR
         run: |
-          docker build -t $ECR_REPOSITORY:v1 .
-          docker tag $ECR_REPOSITORY:$IMAGE_TAG ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ env.AWS_REGION }}.amazonaws.com/$ECR_REPOSITORY:v1
-          docker push ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ env.AWS_REGION }}.amazonaws.com/$ECR_REPOSITORY:v1
+          docker build -t $ECR_REPOSITORY:latest .
+          docker tag devops-prabal:latest 553630366020.dkr.ecr.ap-south-1.amazonaws.com/devops-prabal:latest
+          docker push 553630366020.dkr.ecr.ap-south-1.amazonaws.com/devops-prabal:latest
